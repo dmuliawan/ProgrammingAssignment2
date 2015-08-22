@@ -11,6 +11,7 @@
 ## If the value of x is appropriate, then a square matrix will be created along with 4 functions to
 ## set matrix value, get matrix value, set/calculate the inverse of the matrix, and retrieve the 
 ## inverse of that matrix. 
+## --> Note that variables mx and invm are made available in global environment with this function. 
 makeCacheMatrix <- function(x = matrix()) { # x is a set of values to create a square matrix
     l<-length(x)   # Return the length of x
     mod=sqrt(l)%%1 # Calculate modulus of the length of matrix values (if it's 0 or not).  
@@ -22,7 +23,7 @@ makeCacheMatrix <- function(x = matrix()) { # x is a set of values to create a s
       setmx<-function(y){mx<<-y   
       invm<<-NULL}
       getmx<-function()mx         # getmx function simply returns the matrix mx
-      setinvm<-function(mx)invm<<-solve(mx) # setinvm function calculates the inverse of matrix mx
+      setinvm<-function(mx)invm<<-solve(mx) # setinvm function calculates the inverse of matrix mx and make it available globally
       getinvm<-function()invm     # getinvm function returns the inverse of mx calculated with setinvm function
       list(setmx = setmx, getmx = getmx, # Create a list containing 4 functions
            setinvm = setinvm,
